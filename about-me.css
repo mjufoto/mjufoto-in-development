@@ -66,14 +66,10 @@
     width: 100%; /* Take full width of parent (.about-me-container) */
     /* *** ADDED: Explicitly constrain child to parent's width *** */
     max-width: 100%; /* Ensures this element does not exceed its parent's content box width */
-    
     text-align: center; /* Ensures the picture element (if smaller than its container) is centered */
-    
     padding: 1.25rem; /* 20px - Base internal padding for image block (will be overridden for desktop) */
-    
     box-sizing: border-box;
     
-    /* Removed position and z-index for natural stacking */
 }
 
 /* Styling for the <picture> element and the <img> inside it */
@@ -87,9 +83,7 @@
     display: block;
     width: 100%;
     height: auto;
-    max-width: 50rem; /* 800px - Max width for the image itself */
+    max-width: 50rem;
     margin: 0 auto; /* Ensures the image is centered within the picture element/container */
-    border-radius: 0.5rem; /* 8px */
-    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1); /* 4px, 8px */
 }
 
