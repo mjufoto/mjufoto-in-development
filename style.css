@@ -6,6 +6,8 @@
   --color-light: var(--color-neutral-200);
   --color-dark: var(--color-neutral-800);
   --color-primary: #ff4c24;
+  --color-secondary: #00ffff4c;
+  --color-three: #00dddd;
   --color-neutral-100: #ffffff;
   --color-neutral-200: #efeeec;
   --color-neutral-300: #e3e1de;
@@ -138,8 +140,8 @@ a {
 /* Selection */
 /*---this adjust what colour text is highlighted when users select text on my site---*/
 ::selection {
-  background-color: var(--color-primary);
-  color: var(--color-dark);
+  background-color: var(--color-secondary);
+  color: var(--color-neutral3);
   text-shadow: none;
 }
 
@@ -380,11 +382,11 @@ p {
 }
 
 .bg-panel.first {
-  background-color: #FF00FF /*var(--color-primary)*/;
+  background-color:/* #FF00FF */ var(--color-three);
 }
 
 .bg-panel.second {
-  background-color: #FFFF00 /*var(--color-neutral-100)*/;
+  background-color:/* #FFFF00 */ var(--color-neutral-400);
 }
 
 /*---this is the menu list container; all the parameters for each
@@ -422,9 +424,9 @@ p {
 .menu-link-heading {
   z-index: 1;
   text-transform: uppercase;
-  font-family: PP Neue Corp Tight, Arial, sans-serif;
+  font-family: "Marker-Aid", Arial, sans-serif;
   font-size: 5.625em;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 0.75;
   transition: transform 0.55s cubic-bezier(0.65, 0.05, 0, 1);
   position: relative;
@@ -434,7 +436,7 @@ p {
   z-index: 1;
   color: #00FFFF /*var(--color-primary)*/;
   /*text-transform: uppercase;*/
-  font-family: RM Mono, Arial, sans-serif;
+  font-family: "mundial", RM Mono, Arial, sans-serif;
   font-weight: 400;
   position: relative;
 }
@@ -806,6 +808,7 @@ section .bg h2 {
 /* About Me Container - This is the main layout container for the entire content block */
 article {
   font-family: "pf-scandal";
+  color: var(--color-neutral-400)
 }
 
 .about-me-container {
@@ -817,7 +820,7 @@ article {
     max-width: 80rem; /* 800px (800 / 16 = 50rem) - this is your main content width limit */
     margin: 0 auto; /* Centers the entire .about-me-container horizontally on the page */
     
-    padding: 1.875rem; /* Overall padding (30px) for the container itself, from viewport edges */
+    padding: 1rem; /* Overall padding (30px) for the container itself, from viewport edges */
     box-sizing: border-box; /* Ensures padding doesn't add to the max-width */
 
     /* *** TEMPORARY: FOR DEBUGGING THE CONTAINER'S MAX-WIDTH (KEEP THIS FOR NOW) *** */
@@ -846,27 +849,31 @@ article {
 
 /* About Me Heading specific styling */
 .about-me-heading {
+    font-family: /*"graphite-std", */"marker-aid", sans-serif;
+    font-weight: 400;
     font-size: 4em;
-    margin-bottom: 0.625rem; /* 10px */
-    color: #333;
+    margin-bottom: 0.2rem; /* 10px */
+    margin-top: 4.5rem;
+    color: var(--color-neutral-400)
 }
 
 /* About Me Statement specific styling */
-.about-me-statement {
-    font-size: 2em;
+article .about-me-statement {
+    font-family: /*"contralto-medium", "mundial", "pf-marlet-display", "mr-eaves-modern",*/ "graphite-std", sans-serif;
+    font-weight: 400;
+    font-size: 1.4em;
     line-height: 1.6;
-    color: #555;
-    margin-bottom: 0.9375rem; /* 15px */
+    color: var(--color-neutral-400);
+    margin-bottom: 0.1rem; /* 15px */
 }
 
 /* About Me Signature styling - Pushed to the right using margin-left: auto */
 .about-me-signature {
     font-size: 3em;
-    font-style: italic;
-    color: #777;
+    color: var(--color-neutral-400);
+    letter-spacing: 0.25em;
     margin-top: 0;
-    margin-bottom: 1.25rem; /* 20px */
-    
+    margin-bottom: 0.1rem; /* 20px */
     margin-left: auto; /* Pushes this flex item to the far right within its flex container */
 }
 
@@ -896,7 +903,7 @@ article {
     display: block;
     width: 100%;
     height: auto;
-    max-width: 50rem; /* 800px - Max width for the image itself */
+
     margin: 0 auto; /* Ensures the image is centered within the picture element/container */
     border-radius: 0.5rem; /* 8px */
     box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1); /* 4px, 8px */
