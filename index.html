@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <title>mju | foto</title>
+    <link rel="stylesheet" href="https://use.typekit.net/jze3cuy.css"> <!--priori sans + PF Scandal fonts from adobe-->
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js" defer></script>
+<script src="landing-page.js" defer></script>
+<script src="nav-menu.js" defer></script>
+
+</head>
+
+<body>
+   
+<nav> 
+    <div class="main-nav-wrapper">
+        <header class="header">
+          <div class="container is--full">
+            <nav class="nav-row">
+                <a href="#" class="nav-logo-row">
+                mju | foto
+                </a>
+              <div class="nav-row__right">
+                <button role="button" data-menu-toggle="" class="menu-button">
+
+                  <div class="menu-button-text">
+                    <p class="p-large">Menu</p>
+                    <p class="p-large">Close</p>
+                  </div>
+                  <div class="icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="menu-button-icon">
+                      <path d="M7.33333 16L7.33333 -3.2055e-07L8.66667 -3.78832e-07L8.66667 16L7.33333 16Z" fill="currentColor"></path>
+                      <path d="M16 8.66667L-2.62269e-07 8.66667L-3.78832e-07 7.33333L16 7.33333L16 8.66667Z" fill="currentColor"></path>
+                      <path d="M6 7.33333L7.33333 7.33333L7.33333 6C7.33333 6.73637 6.73638 7.33333 6 7.33333Z" fill="currentColor"></path>
+                      <path d="M10 7.33333L8.66667 7.33333L8.66667 6C8.66667 6.73638 9.26362 7.33333 10 7.33333Z" fill="currentColor"></path>
+                      <path d="M6 8.66667L7.33333 8.66667L7.33333 10C7.33333 9.26362 6.73638 8.66667 6 8.66667Z" fill="currentColor"></path>
+                      <path d="M10 8.66667L8.66667 8.66667L8.66667 10C8.66667 9.26362 9.26362 8.66667 10 8.66667Z" fill="currentColor"></path>
+                    </svg></div>
+                </button></div>
+            </nav>
+          </div>
+          
+        </header>
+      </div>
+      
+      <div class="menu-drop-down-wrapper">
+        
+        <div data-nav="closed" class="nav">
+          <div data-menu-toggle="" class="overlay"></div>
+          <nav class="menu">
+            <div class="menu-bg">
+              <div class="bg-panel first"></div>
+              <div class="bg-panel second"></div>
+              <div class="bg-panel"></div>
+            </div>
+            <div class="menu-inner">
+              <ul class="menu-list">
+                <li class="menu-list-item">
+                  <a href="#" class="menu-link w-inline-block">
+                    <p class="menu-link-heading">About Me</p>
+                    <p class="eyebrow">info</p>
+                    <div class="menu-link-bg"></div>
+                  </a>
+                </li>
+                <li class="menu-list-item">
+                  <a href="#" class="menu-link w-inline-block">
+                    <p class="menu-link-heading">Contact</p>
+                    <p class="eyebrow">e-mail</p>
+                    <div class="menu-link-bg"></div>
+                  </a>
+                </li>
+                <!--
+                <li class="menu-list-item">
+                  <a href="#" class="menu-link w-inline-block">
+                    <p class="menu-link-heading">Gallery 02</p>
+                    <p class="eyebrow">in progress</p>
+                    <div class="menu-link-bg"></div>
+                  </a>
+                </li>
+                <li class="menu-list-item">
+                  <a href="#" class="menu-link w-inline-block">
+                    <p class="menu-link-heading">Gallery 03</p>
+                    <p class="eyebrow">2020</p>
+                    <div class="menu-link-bg"></div>
+                  </a>
+                </li>
+                <li class="menu-list-item">
+                  <a href="#" class="menu-link w-inline-block">
+                    <p class="menu-link-heading">Contact us</p>
+                    <p class="eyebrow">05</p>
+                    <div class="menu-link-bg"></div>
+                  </a>
+                </li>
+                -->
+              </ul>
+              <div class="menu-details">
+                <p data-menu-fade="" class="p-small">Socials</p>
+                <div class="socials-row">
+                  <a data-menu-fade="" href="https://www.instagram.com/mjufoto/" class="p-large text-link">Instagram</a>
+                  <!--
+                  <a data-menu-fade="" href="https://www.are.na/mju/channels" class="p-large text-link">Are.na</a>
+                  <a data-menu-fade="" href="#" class="p-large text-link">500px</a>
+                  <a data-menu-fade="" href="#" class="p-large text-link">Glass</a>
+                  -->
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      
+      <!--I'm putting the below two scripts in the head tag, so i'll comment them out here
+      eventually i'll delete, but just want record of what the menu animations use-->
+      <!--
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+      -->
+      
+</nav>
+<!--BELOW WAS PLACEHOLDER IMAGE SECTION-->
+<!--<section>-->
+<!--<img src="/images/_DSF7888.jpg" alt="alt image description" class="full-screen-image">   -->      
+<!--</section>-->
+
+<section class="section-one">
+  <div class="outer" data-class="animation-target-container">
+    <div class="inner" data-class="animation-target-content">
+      <div class="bg one" data-class="animation-target-background">  
+        <h2 class="section-heading">mju&nbsp;&nbsp;|&nbsp;&nbsp;foto
+          <!--<a href="https://mjufoto.com/" class="anchor-box"></a>-->
+        </h2>
+        <picture class="full-screen-image">
+            <source media="(max-width: 767px)" srcset="" type="image/webp">
+            <source media="(min-width: 768px)" srcset="" type="image/webp">
+          <img src="" alt="">
+        </picture>
+        <!--<h2 class="scroll-down">&#8964</h2>-->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section-two">
+  <div class="outer" data-class="animation-target-container">
+    <div class="inner" data-class="animation-target-content">
+      <div class="bg" data-class="animation-target-background">
+        <h2 class="section-heading">Webspace Under Development</h2>
+          <picture class="full-screen-image">
+            <source media="(max-width: 767px)" srcset="" type="image/webp">
+            <source media="(min-width: 768px)" srcset="" type="image/webp">
+          <img src="" alt="">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section-three">
+  <div class="outer" data-class="animation-target-container">
+    <div class="inner" data-class="animation-target-content">
+      <div class="bg" data-class="animation-target-background">
+        <h2 class="section-heading">Unveiling Summer 2025</h2>
+          <picture class="full-screen-image">
+            <source media="(max-width: 767px)" srcset="" type="image/webp">
+            <source media="(min-width: 768px)" srcset="" type="image/webp">
+          <img src="" alt="">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>

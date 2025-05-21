@@ -1,0 +1,811 @@
+/* ------- Osmo [https://osmo.supply/] ------- */
+/*  Osmo UI: https://slater.app/10324/23333.css 
+ */
+
+/* IMPORT CSS --------------------------------------------------------------*/
+/* ------------------------- Osmo [https://osmo.supply/] ------------------------- */
+/* ------------------------- Variables ------------------------------------------- */
+
+/*-------------------------- Primarily Style for Menu START ---------------------- */
+
+/*---!!!!! DON'T FORGET !!!! DON'T FORGET !!!! DON'T FORGET TO FIX YOUR Z-INDEXS !!!!!!!! ---*/
+
+/*--outline of all my variables--*/
+
+:root {
+  --color-light: var(--color-neutral-200);
+  --color-dark: var(--color-neutral-800);
+  --color-primary: #ff4c24;
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #efeeec;
+  --color-neutral-300: #e3e1de;
+  --color-neutral-400: #cbc8c5;
+  --color-neutral-500: #818180;
+  --color-neutral-600: #2c2c2c;
+  --color-neutral-700: #1f1f1f;
+  --color-neutral-800: #131313;
+  --color-neutral-900: #000000;
+  --color-white: var(--color-neutral-100);
+  --color-black: var(--color-neutral-900);
+  --color-error: var(--color-primary);
+  --color-success: #0ba954; 
+  --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
+  --duration-default: 0.735s;
+  --animation-default: var(--duration-default) var(--cubic-default);
+  --gap: 2em;
+  --section-padding: calc(3.5em + (var(--gap) * 2));
+  --container-padding: 2em;
+  --header-height: calc(1.5em + (var(--gap) * 2));
+  --footer-height: calc(2.785em + (var(--gap) * 2));
+  --menu-padding: 2em;
+}
+
+/* Tablet */
+@media screen and (max-width: 991px) {
+  :root {
+    --container-padding: 1.5em;
+  }
+}
+
+/* Mobile Landscape */
+@media screen and (max-width: 767px) {
+  :root {
+    --container-padding: 1em;
+  }
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 479px) {
+  :root {}
+}
+
+/* ------------------------- Scaling System by Osmo [https://osmo.supply/] -------------------------  */
+
+/* Desktop */
+:root {
+  --size-unit: 16; /* body font-size in design - no px */
+  --size-container-ideal: 1440; /* screen-size in design - no px */
+  --size-container-min: 992px;
+  --size-container-max: 1920px;
+  --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
+  --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
+}
+
+/* Tablet */
+@media screen and (max-width: 991px) {
+  :root {
+    --size-container-ideal: 834; /* screen-size in design - no px */
+    --size-container-min: 768px;
+    --size-container-max: 991px;
+  }
+}
+
+/* Mobile Landscape */
+@media screen and (max-width: 767px) {
+  :root {
+    --size-container-ideal: 390; /* screen-size in design - no px */
+    --size-container-min: 480px;
+    --size-container-max: 767px;
+  }
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 479px) {
+  :root {
+    --size-container-ideal: 390; /* screen-size in design - no px */
+    --size-container-min: 320px;
+    --size-container-max: 479px;
+  }
+}
+
+
+/* ------------------------- Hide Scrollbar -------------------------------------------------- */
+
+body ::-webkit-scrollbar,
+body::-webkit-scrollbar {display: none;} /* Chrome, Safari, Opera */
+body {-ms-overflow-style: none;} /* IE & Edge */
+html {scrollbar-width: none;} /* Firefox */
+
+/* ------------------------- Reset -------------------------------------------------- */
+
+/*-----this selects all elements in the HTML and changes to border-box; which means
+margin and padding are kept inside the boundaries of the container---*/
+*, 
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*---this is disabling any inhereted smooth scrolling
+-----I may want to play with this on the gallery pages--*/
+html {
+  scroll-behavior: initial;
+}
+
+/*---this ensures less pixelated fonts---*/
+/*---i could also incorporate the related property -moz-osx-font-smoothing: grayscale--*/ 
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/*---this controls svg elements behaviour in containers, ensuring they resize 
+-----dynamically and well as the containers resize---*/
+svg {
+  max-width: none;
+  height: auto;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+/*---inherets colour from parent element---*/
+a {
+  color: inherit;
+}
+
+/* Selection */
+/*---this adjust what colour text is highlighted when users select text on my site---*/
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+  text-shadow: none;
+}
+
+/*---MENU Fonts being used; let's review this and see if i can pull something from Adobe*/
+@font-face {
+  font-family: "PP Neue Corp Tight";
+  src: url("https://cdn.prod.website-files.com/673af51dea86ab95d124c3ee/673b0f5784f7060c0ac05534_PPNeueCorp-TightUltrabold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.main-nav-wrapper {
+  z-index: 0;
+  pointer-events: none;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.nav-row {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.nav-logo-row {
+  font-family: "priori-sans", sans-serif;
+  font-size: 1.25em;
+  letter-spacing: 0.5em;
+  color: white;
+  text-decoration: none;
+  pointer-events: auto;
+  justify-content: space-between;
+  align-items: center;
+  width: 13em;
+  display: flex;
+
+}
+
+/*
+.nav-logo-row:hover {
+  font-weight:bold
+}*/
+
+/*---I think this is a artifact from something i remeved---*/
+/*
+.nav-logo__wordmark {
+  width: 4em;
+}*/
+
+.nav-logo__icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+/*---Thsi is the container for the menu---*/
+.container {
+  z-index: 1;
+  max-width: var(--size-container);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.container.is--full {
+  max-width: 100%;
+}
+
+/*---this is the menu button and logo container---*/
+.nav-row__right {
+  grid-column-gap: 0.625rem;
+  grid-row-gap: 0.625rem;
+  pointer-events: auto;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+}
+
+/*---this is a .header class within the <header> element, that's contained in the 
+---other div class"main nav wrapper"; which is further contained int the Nav element
+---CONSIDER RENAMING THE HEADER ELEMENT FOR SEO--perhaps making a simple div class?
+---*/
+.header {
+  z-index: 110;
+  padding-top: var(--gap);
+  position: fixed;
+  inset: 0% 0% auto;
+}
+
+/*---ARTIFACT?---*/
+/*
+.website-link {
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+}
+*/
+
+/*---ARTIFACT?---*/
+/*
+.website-link.is--alt {
+  grid-column-gap: 0.25em;
+  grid-row-gap: 0.25em;
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.5em;
+  display: flex;
+}
+*/
+
+/*---ARTIFACT?---*/
+/*
+.inline-link__p {
+  margin-bottom: 0;
+}
+*/
+
+/*---ARTIFACT?---*/
+/*
+.body {
+  background-color: var(--color-neutral-300);
+  color: var(--color-dark);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  line-height: 1;
+}
+*/
+/*---SIMPLE rule for paragraph tags...do i need this?---*/
+p {
+  margin: 0px;
+}
+
+/*
+.cloneable {
+  padding: var(--section-padding) var(--container-padding);
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  display: flex;
+  position: relative;
+  --menu-padding: 2em;
+}
+*/
+/* -----this is the full screen image class form teh other page
+.full-screen-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 0;
+*/
+
+/*---this applies to the menu when it's dorpped down I wonder
+----- if i could instead apply this to the menu-drop-down-wrapper div class instead
+----- if i do i'll need to adjust the JS, so maybe i'll just leave it---*/
+.nav {
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: fixed;
+  inset: 0%;
+}
+
+/*---this is the overlay next to menu---*/
+.overlay { 
+  z-index: 0;
+  cursor: pointer;
+  background-color: #00ffff4c /*#1fd2eaeb*/;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
+
+/*---This is the nav class which contains the drop down menu---*/
+.menu {
+  padding-bottom: var(--menu-padding);
+  grid-column-gap: 5em;
+  grid-row-gap: 5em;
+  padding-top: calc(3 * var(--menu-padding));
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 35em;
+  height: 100%;
+  margin-left: auto;
+  position: relative;
+  overflow: auto;
+}
+
+/*---This contains the 3 menu pages that animate--*/
+.menu-bg {
+  z-index: 0;
+  position: absolute;
+  inset: 0%;
+}
+
+.menu-inner {
+  z-index: 1;
+  grid-column-gap: 5em;
+  grid-row-gap: 5em;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  display: flex;
+  position: relative;
+  overflow: auto;
+}
+
+.bg-panel {
+  z-index: 0;
+  background-color: #808080 /*var(--color-neutral-400)*/;
+  border-top-left-radius: 1.25em;
+  border-bottom-left-radius: 1.25em;
+  position: absolute;
+  inset: 0%;
+}
+
+.bg-panel.first {
+  background-color: #FF00FF /*var(--color-primary)*/;
+}
+
+.bg-panel.second {
+  background-color: #FFFF00 /*var(--color-neutral-100)*/;
+}
+
+/*---this is the menu list container; all the parameters for each
+-----item are in order as you go down.---*/
+.menu-list {
+  flex-flow: column;
+  width: 100%;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 0;
+  list-style: none;
+  display: flex;
+}
+
+.menu-list-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-link-heading {
+  text-shadow: 0px 1em 0px var(--color-neutral-200);
+}
+
+.menu-link {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  padding-left: var(--menu-padding);
+  grid-column-gap: 0.75em;
+  grid-row-gap: 0.75em;
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+}
+
+.menu-link-heading {
+  z-index: 1;
+  text-transform: uppercase;
+  font-family: PP Neue Corp Tight, Arial, sans-serif;
+  font-size: 5.625em;
+  font-weight: 700;
+  line-height: 0.75;
+  transition: transform 0.55s cubic-bezier(0.65, 0.05, 0, 1);
+  position: relative;
+}
+
+.eyebrow {
+  z-index: 1;
+  color: #00FFFF /*var(--color-primary)*/;
+  /*text-transform: uppercase;*/
+  font-family: RM Mono, Arial, sans-serif;
+  font-weight: 400;
+  position: relative;
+}
+
+.menu-link-bg {
+  z-index: 0;
+  background-color: var(--color-neutral-800);
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.65, 0.05, 0, 1);
+  position: absolute;
+  inset: 0%;
+  transform: scale3d(1, 0, 1);
+}
+
+/*---this is the section at the bottom of the menu for additional links--*/
+.menu-details {
+  padding-left: var(--menu-padding);
+  grid-column-gap: 1.25em;
+  grid-row-gap: 1.25em;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.p-small {
+  font-size: 0.875em;
+  font-family: Arial, Helvetica;
+}
+
+.socials-row {
+  grid-column-gap: 1.5em;
+  grid-row-gap: 1.5em;
+  flex-flow: row;
+  display: flex;
+}
+
+.p-large {
+  font-size: 2em;
+  font-family: "priori-sans", sans-serif
+}
+
+.text-link {
+  text-decoration: none;
+  position: relative;
+}
+
+.menu-button {
+  grid-column-gap: 0.625em;
+  grid-row-gap: 0.625em;
+  background-color: #00000000;
+  justify-content: flex-end;
+  align-items: center;
+  margin: -1em;
+  padding: 1em;
+  display: flex;
+  border: none;
+  color: #ffffff
+}
+
+.menu-button-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.menu-button-text {
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  height: 2em;
+  display: flex;
+  overflow: hidden;
+  color: white;
+}
+
+.icon-wrap {
+  transition: transform 0.4s cubic-bezier(0.65, 0.05, 0, 1);
+}
+
+/*---this handles the hover animations if the device can hove---*/
+@media (hover: hover) {
+  /* Menu toggle button*/
+  .menu-button:hover .icon-wrap {
+    transform: rotate(90deg);
+  }
+
+  /* Menu Large Links */
+  .menu-link:hover .menu-link-heading {
+    transform: translate(0px, -1em);
+    transition-delay: 0.1s;
+  }
+  .menu-link:hover .menu-link-bg {
+    transform: scale(1, 1);
+  }
+
+  /* Menu Smaller Links */
+  .text-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: #00FFFF /*var(--color-primary)*/;
+    transform-origin: right center;
+    transform: scale(0, 1);
+    transition: transform 0.4s var(--cubic-default);
+  }
+
+  .text-link:hover::after {
+    transform-origin: left center;
+    transform: scale(1, 1);
+  }
+}
+
+/*---ARTIFACT??-----*/
+/*
+.osmo-icon-svg {
+  width: 8em;
+}
+*/
+
+h2 {
+  font-family: "pf-scandal", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: clamp(1rem, 5vw, 4.5rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5em;
+  margin-right: -0.5em;
+  color: hsl(0, 0, 80%);
+  width: 90vw;
+  max-width: 1200px;
+  padding: 5px 10px;
+}
+
+h2 * {
+  will-change: transform;
+}
+
+@media screen and (max-width: 767px) {
+  /*--DON'T REALLY THINK I NEED IT
+  .cloneable {
+    --menu-padding: 1em;
+  }
+*/
+
+  .nav-logo-row {
+    grid-column-gap: 2.5em;
+    grid-row-gap: 2.5em;
+    width: auto;
+  }
+
+  .nav-row__right {
+    grid-column-gap: 0rem;
+    grid-row-gap: 0rem;
+  }
+
+  /*---ARTIFACT----*/
+  /*
+  .cloneable-title {
+    pointer-events: none;
+    width: calc(100% - 5.25em);
+    padding-left: 1em;
+    position: absolute;
+    overflow: hidden;
+  }
+  */
+
+  /*---ARTIFACT----*/
+  /*
+  .cloneable-title__nr,
+  .cloneable-title__h1 {
+    font-size: 0.875em;
+  }
+  */
+
+  /*---NOT REALLY SURE WHAT THESE DO---*/
+  /*
+  .clone-in-webflow {
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 0;
+    padding-left: 0.75em;
+  }
+
+  .clone-in-webflow__p {
+    display: none;
+  }
+*/
+
+  .cloneable-title__gradient,
+  .main-nav-wrapper__bg {
+    display: block;
+  }
+
+  .menu {
+    padding-top: calc(6 * var(--menu-padding));
+    width: 100%;
+  }
+
+  .bg-panel {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .menu-list-item {
+    height: 4.5em;
+  }
+
+  .menu-link-heading {
+    font-size: 4em;
+  }
+
+  .socials-row {
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+  }
+
+  .p-large.text-link {
+    font-size: 1em;
+  }
+
+  .nav-logo-row {
+      font-size: 1em;
+  }
+
+  .p-large {
+      font-size: 1.2em;
+  }
+
+  .menu-button-text {
+      height: 1.2em;
+  }
+  
+  h2 {
+    font-weight: 900;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .menu {
+    padding-top: calc(7 * var(--menu-padding));
+    padding-bottom: calc(2 * var(--menu-padding));
+  }
+}
+/*-------------------------- Primarily Style for Menu END ------------------------ */
+
+/*-------------------------- Primarily Style for Pages START --------------------- */
+
+/*---This targets the box that will be the gallery link--CONSIDER RENAMING------*/
+
+.anchor-box {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  color: #fff;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: border-color .3s ease-in-out, opacity .3s ease-in-out, padding .3s ease-in-out;
+}
+
+.anchor-box:hover {
+  border-color: white;
+  padding: 10px 20px;
+  opacity: 1
+}
+
+/*--Okay now we're getting into the main page body--*/
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: var(--color-neutral-800);
+  /*---SOOO if i start to adjust body color, which will effect my observer text
+  it effs up my menu color; so i have it disabled now, I need to dial in the menu 
+  colour indepentently or target my observer text color maybe with a section heading
+  class rule---*/
+  /*color: white;
+  background: black;
+  font-family: "priori-sans", sans-serif;
+  overflow: hidden;*/
+}
+
+
+
+/*---I believe this is for the splitHeadings animation--*/
+section .clip-text {
+  overflow: hidden;
+}
+
+section {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  /*visibility: hidden;  have this commented out because i think observer targets this*/
+}
+
+section .outer,
+section .inner {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  section .bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+
+  }
+
+section .full-screen-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+}
+
+section .full-screen-image img{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* Keep it behind other content */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+
+section .bg h2 {
+      z-index: 2;
+    }
+
+/*THIS WILL BE FOR VIDEO ELEMENTS---STYLE PARAMETERS STILL IN DEVELOPMENT*/
+/*
+    .bg-video{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      }
+*/
