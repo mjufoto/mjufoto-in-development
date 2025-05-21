@@ -1,0 +1,95 @@
+/* About Me Container - This is the main layout container for the entire content block */
+.about-me-container {
+    display: flex;
+    flex-direction: column; /* Stacks text and image vertically */
+    align-items: center; /* Centers the child sections (text and image) horizontally within *this* container */
+    
+    width: 100%; /* Take full viewport width up to max-width */
+    max-width: 50rem; /* 800px (800 / 16 = 50rem) - this is your main content width limit */
+    margin: 0 auto; /* Centers the entire .about-me-container horizontally on the page */
+    
+    padding: 1.875rem; /* Overall padding (30px) for the container itself, from viewport edges */
+    box-sizing: border-box; /* Ensures padding doesn't add to the max-width */
+
+    /* *** TEMPORARY: FOR DEBUGGING THE CONTAINER'S MAX-WIDTH (KEEP THIS FOR NOW) *** */
+    border: 2px solid red; /* Add this to see the container's actual boundaries */
+    /* Remove this border once you confirm it's behaving as expected */
+}
+
+/* About Me Text Content - Contains heading, statement, and signature */
+.about-me-text-content {
+    display: flex;
+    flex-direction: column; /* Stacks heading, statement, and signature */
+    align-items: flex-start; /* Aligns heading and statement to the START (left) */
+    text-align: left; /* Ensures text inside paragraphs is left-aligned */
+
+    width: 100%; /* Take full width of parent (.about-me-container) */
+    /* *** ADDED: Explicitly constrain child to parent's width *** */
+    max-width: 100%; /* Ensures this element does not exceed its parent's content box width */
+    
+    padding: 1.25rem; /* 20px - Base internal padding for text block (will be overridden for desktop) */
+    
+    margin-bottom: 1.875rem; /* Space between text block and image (30px) */
+    box-sizing: border-box;
+    
+    /* Removed position and z-index for natural stacking */
+}
+
+/* About Me Heading specific styling */
+.about-me-heading {
+    font-size: 2em;
+    margin-bottom: 0.625rem; /* 10px */
+    color: #333;
+}
+
+/* About Me Statement specific styling */
+.about-me-statement {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0.9375rem; /* 15px */
+}
+
+/* About Me Signature styling - Pushed to the right using margin-left: auto */
+.about-me-signature {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #777;
+    margin-top: 0;
+    margin-bottom: 1.25rem; /* 20px */
+    
+    margin-left: auto; /* Pushes this flex item to the far right within its flex container */
+}
+
+/* Self Portrait Container - Contains the picture element */
+.self-portrait-container {
+    width: 100%; /* Take full width of parent (.about-me-container) */
+    /* *** ADDED: Explicitly constrain child to parent's width *** */
+    max-width: 100%; /* Ensures this element does not exceed its parent's content box width */
+    
+    text-align: center; /* Ensures the picture element (if smaller than its container) is centered */
+    
+    padding: 1.25rem; /* 20px - Base internal padding for image block (will be overridden for desktop) */
+    
+    box-sizing: border-box;
+    
+    /* Removed position and z-index for natural stacking */
+}
+
+/* Styling for the <picture> element and the <img> inside it */
+.self-portrait {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.self-portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 50rem; /* 800px - Max width for the image itself */
+    margin: 0 auto; /* Ensures the image is centered within the picture element/container */
+    border-radius: 0.5rem; /* 8px */
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1); /* 4px, 8px */
+}
+

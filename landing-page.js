@@ -44,7 +44,7 @@ const imageSets = {
         },
         {
             webpSmall: "image-finals/section-two-images/crossroad/mjufoto-artwork-crossroad-year-2024-small.webp",
-            webpLarge: "image-finals/section-two-images/crossroa/mjufoto-artwork-crossroad-year-2024-large.webp",
+            webpLarge: "image-finals/section-two-images/crossroad/mjufoto-artwork-crossroad-year-2024-large.webp",
             jpgFallback: "image-finals/section-two-images/crossroad/mjufoto-artwork-crossroad-year-2024.jpg",
             alt: "Pastoral scene of a dusk-lit prairie. A single telephone pole stands prominently, supporting a single wire that extends into the distance. Tall grasses line a gravel road in the foreground, with farmed fields beyond. A waxing gibbous moon hangs in the sky. Soft grain texture throughout."
         },
