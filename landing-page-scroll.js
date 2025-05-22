@@ -249,7 +249,7 @@ const observer = Observer.create({
         }
     },
     tolerance: 10,
-    //preventDefault: window.innerWidth > 767
+    //preventDefault: true
 });
 
 setRandomBackgroundImage(sections[0]);
