@@ -104,21 +104,21 @@ function setSectionTimer(index) {
 }
 
 function setRandomBackgroundImage(section) {
-    console.log("setRandomBackgroundImage called for:", section);
+    //console.log("setRandomBackgroundImage called for:", section);
     const sectionClass = section.classList[0];
-    console.log("sectionClass:", sectionClass);
+    //console.log("sectionClass:", sectionClass);
     const bgDiv = section.querySelector(".bg");
-    console.log("bgDiv:", bgDiv);
+    //console.log("bgDiv:", bgDiv);
     const pictureElement = bgDiv ? bgDiv.querySelector(".full-screen-image") : null;
-    console.log("pictureElement:", pictureElement);
+    //console.log("pictureElement:", pictureElement);
     const sourceElements = pictureElement ? pictureElement.querySelectorAll("source") : null;
-    console.log("sourceElements:", sourceElements);
+    //console.log("sourceElements:", sourceElements);
     const imgElement = pictureElement ? pictureElement.querySelector("img") : null;
-    console.log("imgElement:", imgElement);
+    //console.log("imgElement:", imgElement);
     const artworkArray = imageSets[sectionClass];
-    console.log("artworkArray:", artworkArray);
+    //console.log("artworkArray:", artworkArray);
     const displayed = displayedArtworks[sectionClass];
-    console.log("displayed:", displayed);
+    //console.log("displayed:", displayed);
 
     if (pictureElement && artworkArray) {
         let randomIndex;
@@ -129,7 +129,7 @@ function setRandomBackgroundImage(section) {
 
         // Check if all images have been displayed for this section
         if (displayed.length === artworkArray.length) {
-            console.log(`Resetting displayedArtworks BEFORE selection for ${sectionClass}`);
+            //console.log(`Resetting displayedArtworks BEFORE selection for ${sectionClass}`);
             displayedArtworks[sectionClass] = []; // Reset for a new cycle
         }
 
@@ -152,7 +152,7 @@ function setRandomBackgroundImage(section) {
         }
 
         if (selectedArtwork) { // Ensure we have a selected artwork
-            console.log(`Selected artwork for ${sectionClass}:`, selectedArtwork.alt);
+            //console.log(`Selected artwork for ${sectionClass}:`, selectedArtwork.alt);
             if (sourceElements && sourceElements.length >= 2 && imgElement) {
                 sourceElements[0].media = "(max-width: 767px)";
                 sourceElements[0].srcset = selectedArtwork.webpSmall;
@@ -169,7 +169,7 @@ function setRandomBackgroundImage(section) {
                 imgElement.alt = selectedArtwork.alt;
             }
             displayedArtworks[sectionClass].push(selectedArtwork);
-            console.log(`After push for ${sectionClass}:`, displayedArtworks[sectionClass]);
+            //console.log(`After push for ${sectionClass}:`, displayedArtworks[sectionClass]);
         } else {
             const fallbackIndex = Math.floor(Math.random() * artworkArray.length);
             const fallbackArtwork = artworkArray[fallbackIndex];
@@ -178,7 +178,7 @@ function setRandomBackgroundImage(section) {
                 imgElement.alt = fallbackArtwork.alt;
             }
             displayedArtworks[sectionClass] = [fallbackArtwork];
-            console.warn(`Could not find a unique artwork for ${sectionClass} after ${maxAttempts} attempts (or on reset). Forced fallback.`);
+            //console.warn(`Could not find a unique artwork for ${sectionClass} after ${maxAttempts} attempts (or on reset). Forced fallback.`);
         }
     }
 }
