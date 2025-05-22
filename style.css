@@ -824,7 +824,7 @@ article {
     box-sizing: border-box; /* Ensures padding doesn't add to the max-width */
 
     /* *** TEMPORARY: FOR DEBUGGING THE CONTAINER'S MAX-WIDTH (KEEP THIS FOR NOW) *** */
-    border: 2px solid rgb(124, 124, 124); /* Add this to see the container's actual boundaries */
+    /*border: 2px solid rgb(124, 124, 124); /* Add this to see the container's actual boundaries */
     /* Remove this border once you confirm it's behaving as expected */
 }
 
